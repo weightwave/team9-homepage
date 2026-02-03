@@ -1,8 +1,10 @@
+/* eslint-disable @next/next/no-html-link-for-pages */
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Pricing - Team9",
-  description: "Choose the perfect plan for your team. From free for organizations to enterprise solutions with dedicated support.",
+  description:
+    "Choose the perfect plan for your team. From free for organizations to enterprise solutions with dedicated support.",
 };
 
 export default function Pricing() {
@@ -18,25 +20,35 @@ export default function Pricing() {
             Team9
           </a>
 
-          <a
-            href="/#contact"
-            className="group px-4 py-2 md:px-5 md:py-2.5 text-white/80 text-sm md:text-base font-semibold rounded-lg border border-white/15 bg-white/5 hover:border-amber-300/60 hover:text-white transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400/30 flex items-center gap-2"
-          >
-            <span className="relative z-10">Contact Us</span>
-            <svg
-              className="w-4 h-4 transition-transform group-hover:translate-x-0.5 relative z-10"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
+          <div className="flex items-center gap-4">
+            <a
+              href="/#contact"
+              className="group px-4 py-2 md:px-5 md:py-2.5 text-white/80 text-sm md:text-base font-semibold rounded-lg border border-white/15 bg-white/5 hover:border-amber-300/60 hover:text-white transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400/30 flex items-center gap-2"
             >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M17 8l4 4m0 0l-4 4m4-4H3"
-              />
-            </svg>
-          </a>
+              <span className="relative z-10">Contact Us</span>
+              <svg
+                className="w-4 h-4 transition-transform group-hover:translate-x-0.5 relative z-10"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M17 8l4 4m0 0l-4 4m4-4H3"
+                />
+              </svg>
+            </a>
+
+            {/* Sign In Button */}
+            <a
+              href="https://app.team9.ai/login"
+              className="px-4 py-2 md:px-5 md:py-2.5 text-sm md:text-base font-semibold rounded-lg bg-gradient-to-r from-amber-500 to-orange-500 text-white hover:from-amber-400 hover:to-orange-400 transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400/30"
+            >
+              Sign In
+            </a>
+          </div>
         </header>
 
         {/* Pricing Section */}
@@ -55,7 +67,8 @@ export default function Pricing() {
                 Simple, Transparent Pricing
               </h1>
               <p className="text-lg text-white/70 max-w-2xl mx-auto leading-relaxed">
-                Choose the plan that fits your team. Start free and scale as you grow.
+                Choose the plan that fits your team. Start free and scale as you
+                grow.
               </p>
               <div className="w-24 h-1 bg-gradient-to-r from-amber-500 to-orange-500 mx-auto rounded-full mt-6" />
             </div>
@@ -66,7 +79,9 @@ export default function Pricing() {
               <div className="bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-md border border-white/20 rounded-3xl p-8 shadow-2xl hover:shadow-amber-500/10 transition-all duration-500 hover:scale-[1.02] flex flex-col">
                 <div className="mb-6">
                   <h3 className="text-2xl font-bold text-white mb-2">Free</h3>
-                  <p className="text-white/60">For organizations getting started</p>
+                  <p className="text-white/60">
+                    For organizations getting started
+                  </p>
                 </div>
                 <div className="mb-8">
                   <span className="text-5xl font-black text-white">$0</span>
@@ -74,20 +89,54 @@ export default function Pricing() {
                 </div>
                 <ul className="space-y-4 mb-8 flex-1">
                   <li className="flex items-start gap-3">
-                    <svg className="w-5 h-5 text-amber-400 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    <svg
+                      className="w-5 h-5 text-amber-400 flex-shrink-0 mt-0.5"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M5 13l4 4L19 7"
+                      />
                     </svg>
-                    <span className="text-white/80">Free for organizations</span>
+                    <span className="text-white/80">
+                      Free for organizations
+                    </span>
                   </li>
                   <li className="flex items-start gap-3">
-                    <svg className="w-5 h-5 text-amber-400 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    <svg
+                      className="w-5 h-5 text-amber-400 flex-shrink-0 mt-0.5"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M5 13l4 4L19 7"
+                      />
                     </svg>
-                    <span className="text-white/80">Basic AI workspace access</span>
+                    <span className="text-white/80">
+                      Basic AI workspace access
+                    </span>
                   </li>
                   <li className="flex items-start gap-3">
-                    <svg className="w-5 h-5 text-amber-400 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    <svg
+                      className="w-5 h-5 text-amber-400 flex-shrink-0 mt-0.5"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M5 13l4 4L19 7"
+                      />
                     </svg>
                     <span className="text-white/80">Community support</span>
                   </li>
@@ -113,41 +162,90 @@ export default function Pricing() {
                   <p className="text-white/60">For teams ready to scale</p>
                 </div>
                 <div className="mb-8">
-                  <span className="text-5xl font-black bg-gradient-to-r from-amber-400 to-orange-400 bg-clip-text text-transparent">$19</span>
+                  <span className="text-5xl font-black bg-gradient-to-r from-amber-400 to-orange-400 bg-clip-text text-transparent">
+                    $19
+                  </span>
                   <span className="text-white/60 ml-2">/month</span>
                 </div>
                 <ul className="space-y-4 mb-8 flex-1">
                   <li className="flex items-start gap-3">
-                    <svg className="w-5 h-5 text-amber-400 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    <svg
+                      className="w-5 h-5 text-amber-400 flex-shrink-0 mt-0.5"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M5 13l4 4L19 7"
+                      />
                     </svg>
                     <span className="text-white/80">Everything in Free</span>
                   </li>
                   <li className="flex items-start gap-3">
-                    <svg className="w-5 h-5 text-amber-400 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    <svg
+                      className="w-5 h-5 text-amber-400 flex-shrink-0 mt-0.5"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M5 13l4 4L19 7"
+                      />
                     </svg>
                     <span className="text-white/80">
-                      <span className="text-amber-400 font-semibold">1 OpenClaw Agent</span> instance
+                      <span className="text-amber-400 font-semibold">
+                        1 OpenClaw Agent
+                      </span>{" "}
+                      instance
                     </span>
                   </li>
                   <li className="flex items-start gap-3">
-                    <svg className="w-5 h-5 text-amber-400 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    <svg
+                      className="w-5 h-5 text-amber-400 flex-shrink-0 mt-0.5"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M5 13l4 4L19 7"
+                      />
                     </svg>
                     <span className="text-white/80">Priority support</span>
                   </li>
                   <li className="flex items-start gap-3">
-                    <svg className="w-5 h-5 text-amber-400 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    <svg
+                      className="w-5 h-5 text-amber-400 flex-shrink-0 mt-0.5"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M5 13l4 4L19 7"
+                      />
                     </svg>
-                    <span className="text-white/80">Advanced collaboration tools</span>
+                    <span className="text-white/80">
+                      Advanced collaboration tools
+                    </span>
                   </li>
                 </ul>
                 {/* Free During Beta Badge */}
                 <div className="mb-4 flex items-center justify-center gap-2 px-4 py-2 bg-green-500/20 border border-green-400/30 rounded-lg">
                   <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
-                  <span className="text-green-400 font-semibold text-sm">Currently Free During Beta</span>
+                  <span className="text-green-400 font-semibold text-sm">
+                    Currently Free During Beta
+                  </span>
                 </div>
                 <a
                   href="https://app.team9.ai/"
@@ -160,7 +258,9 @@ export default function Pricing() {
               {/* Enterprise Plan */}
               <div className="bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-md border border-white/20 rounded-3xl p-8 shadow-2xl hover:shadow-purple-500/10 transition-all duration-500 hover:scale-[1.02] flex flex-col">
                 <div className="mb-6">
-                  <h3 className="text-2xl font-bold text-white mb-2">Enterprise</h3>
+                  <h3 className="text-2xl font-bold text-white mb-2">
+                    Enterprise
+                  </h3>
                   <p className="text-white/60">For large organizations</p>
                 </div>
                 <div className="mb-8">
@@ -168,32 +268,86 @@ export default function Pricing() {
                 </div>
                 <ul className="space-y-4 mb-8 flex-1">
                   <li className="flex items-start gap-3">
-                    <svg className="w-5 h-5 text-purple-400 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    <svg
+                      className="w-5 h-5 text-purple-400 flex-shrink-0 mt-0.5"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M5 13l4 4L19 7"
+                      />
                     </svg>
                     <span className="text-white/80">Everything in Pro</span>
                   </li>
                   <li className="flex items-start gap-3">
-                    <svg className="w-5 h-5 text-purple-400 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    <svg
+                      className="w-5 h-5 text-purple-400 flex-shrink-0 mt-0.5"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M5 13l4 4L19 7"
+                      />
                     </svg>
-                    <span className="text-white/80">Unlimited OpenClaw Agents</span>
+                    <span className="text-white/80">
+                      Unlimited OpenClaw Agents
+                    </span>
                   </li>
                   <li className="flex items-start gap-3">
-                    <svg className="w-5 h-5 text-purple-400 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    <svg
+                      className="w-5 h-5 text-purple-400 flex-shrink-0 mt-0.5"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M5 13l4 4L19 7"
+                      />
                     </svg>
-                    <span className="text-white/80">Dedicated support & SLA</span>
+                    <span className="text-white/80">
+                      Dedicated support & SLA
+                    </span>
                   </li>
                   <li className="flex items-start gap-3">
-                    <svg className="w-5 h-5 text-purple-400 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    <svg
+                      className="w-5 h-5 text-purple-400 flex-shrink-0 mt-0.5"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M5 13l4 4L19 7"
+                      />
                     </svg>
                     <span className="text-white/80">Custom integrations</span>
                   </li>
                   <li className="flex items-start gap-3">
-                    <svg className="w-5 h-5 text-purple-400 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    <svg
+                      className="w-5 h-5 text-purple-400 flex-shrink-0 mt-0.5"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M5 13l4 4L19 7"
+                      />
                     </svg>
                     <span className="text-white/80">On-premise deployment</span>
                   </li>
@@ -217,8 +371,18 @@ export default function Pricing() {
                 className="inline-flex items-center gap-2 text-amber-400 hover:text-amber-300 font-semibold transition-colors"
               >
                 Get in touch with our team
-                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                <svg
+                  className="w-4 h-4"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M17 8l4 4m0 0l-4 4m4-4H3"
+                  />
                 </svg>
               </a>
             </div>
@@ -232,10 +396,16 @@ export default function Pricing() {
               2025 Team9. All rights reserved.
             </p>
             <div className="flex items-center gap-6">
-              <a href="/" className="text-white/60 hover:text-white text-sm transition-colors">
+              <a
+                href="/"
+                className="text-white/60 hover:text-white text-sm transition-colors"
+              >
                 Home
               </a>
-              <a href="/#contact" className="text-white/60 hover:text-white text-sm transition-colors">
+              <a
+                href="/#contact"
+                className="text-white/60 hover:text-white text-sm transition-colors"
+              >
                 Contact
               </a>
             </div>
