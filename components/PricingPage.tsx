@@ -1,31 +1,32 @@
 /* eslint-disable @next/next/no-html-link-for-pages */
-import type { Metadata } from "next";
+import { getTranslations, setRequestLocale } from "next-intl/server";
+import LanguageSwitcher from "@/components/LanguageSwitcher";
 
-export const metadata: Metadata = {
-  title: "Pricing - Team9",
-  description:
-    "Choose the perfect plan for your team. From free for organizations to enterprise solutions with dedicated support.",
-};
+export default async function PricingPage({ locale }: { locale: string }) {
+  setRequestLocale(locale);
 
-export default function Pricing() {
+  const t = await getTranslations({ locale, namespace: "pricing" });
+  const headerT = await getTranslations({ locale, namespace: "header" });
+
   return (
     <div className="max-h-screen bg-gradient-to-br from-[#1a1a2e] via-[#16213e] to-[#0f1419] text-white overflow-x-hidden relative grid-background flex flex-col">
       <div className="relative z-10 flex flex-col min-h-screen" id="ctn">
         {/* Header */}
         <header className="sticky-header sticky top-0 z-50 px-6 py-3 md:px-12 lg:px-20 flex items-center justify-between">
           <a
-            href="/"
+            href={`/${locale}`}
             className="text-2xl md:text-3xl font-black tracking-[-0.04em] animate-fade-in-up bg-gradient-to-r from-white via-amber-100 to-white bg-clip-text text-transparent hover:opacity-80 transition-opacity"
           >
             Team9
           </a>
 
           <div className="flex items-center gap-4">
+            <LanguageSwitcher locale={locale} />
             <a
-              href="/#contact"
+              href={`/${locale}#contact`}
               className="group px-4 py-2 md:px-5 md:py-2.5 text-white/80 text-sm md:text-base font-semibold rounded-lg border border-white/15 bg-white/5 hover:border-amber-300/60 hover:text-white transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400/30 flex items-center gap-2"
             >
-              <span className="relative z-10">Contact Us</span>
+              <span className="relative z-10">{headerT("contactUs")}</span>
               <svg
                 className="w-4 h-4 transition-transform group-hover:translate-x-0.5 relative z-10"
                 fill="none"
@@ -46,7 +47,7 @@ export default function Pricing() {
               href="https://app.team9.ai/login"
               className="px-4 py-2 md:px-5 md:py-2.5 text-sm md:text-base font-semibold rounded-lg bg-gradient-to-r from-amber-500 to-orange-500 text-white hover:from-amber-400 hover:to-orange-400 transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400/30"
             >
-              Sign In
+              {headerT("signIn")}
             </a>
           </div>
         </header>
@@ -64,11 +65,10 @@ export default function Pricing() {
             {/* Section Header */}
             <div className="text-center mb-16 animate-fade-in-up">
               <h1 className="text-4xl md:text-6xl font-black mb-6 bg-gradient-to-r from-amber-400 via-yellow-300 to-orange-400 bg-clip-text text-transparent">
-                Simple, Transparent Pricing
+                {t("title")}
               </h1>
               <p className="text-lg text-white/70 max-w-2xl mx-auto leading-relaxed">
-                Choose the plan that fits your team. Start free and scale as you
-                grow.
+                {t("subtitle")}
               </p>
               <div className="w-24 h-1 bg-gradient-to-r from-amber-500 to-orange-500 mx-auto rounded-full mt-6" />
             </div>
@@ -78,14 +78,14 @@ export default function Pricing() {
               {/* Free Plan */}
               <div className="bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-md border border-white/20 rounded-3xl p-8 shadow-2xl hover:shadow-amber-500/10 transition-all duration-500 hover:scale-[1.02] flex flex-col">
                 <div className="mb-6">
-                  <h3 className="text-2xl font-bold text-white mb-2">Free</h3>
+                  <h3 className="text-2xl font-bold text-white mb-2">{t("freeTitle")}</h3>
                   <p className="text-white/60">
-                    For organizations getting started
+                    {t("freeDesc")}
                   </p>
                 </div>
                 <div className="mb-8">
-                  <span className="text-5xl font-black text-white">$0</span>
-                  <span className="text-white/60 ml-2">/month</span>
+                  <span className="text-5xl font-black text-white">{t("freePrice")}</span>
+                  <span className="text-white/60 ml-2">{t("perMonth")}</span>
                 </div>
                 <ul className="space-y-4 mb-8 flex-1">
                   <li className="flex items-start gap-3">
@@ -103,7 +103,7 @@ export default function Pricing() {
                       />
                     </svg>
                     <span className="text-white/80">
-                      Free for organizations
+                      {t("freeFeature1")}
                     </span>
                   </li>
                   <li className="flex items-start gap-3">
@@ -121,7 +121,7 @@ export default function Pricing() {
                       />
                     </svg>
                     <span className="text-white/80">
-                      Basic AI workspace access
+                      {t("freeFeature2")}
                     </span>
                   </li>
                   <li className="flex items-start gap-3">
@@ -138,14 +138,14 @@ export default function Pricing() {
                         d="M5 13l4 4L19 7"
                       />
                     </svg>
-                    <span className="text-white/80">Community support</span>
+                    <span className="text-white/80">{t("freeFeature3")}</span>
                   </li>
                 </ul>
                 <a
                   href="https://app.team9.ai/"
                   className="w-full px-6 py-4 bg-white/10 border border-white/20 text-white text-center font-semibold rounded-xl hover:bg-white/20 hover:border-white/30 transition-all duration-300"
                 >
-                  Get Started
+                  {t("getStarted")}
                 </a>
               </div>
 
@@ -154,18 +154,18 @@ export default function Pricing() {
                 {/* Popular Badge */}
                 <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
                   <span className="px-4 py-1.5 bg-gradient-to-r from-amber-500 to-orange-500 text-white text-sm font-bold rounded-full shadow-lg">
-                    Most Popular
+                    {t("mostPopular")}
                   </span>
                 </div>
                 <div className="mb-6">
-                  <h3 className="text-2xl font-bold text-white mb-2">Pro</h3>
-                  <p className="text-white/60">For teams ready to scale</p>
+                  <h3 className="text-2xl font-bold text-white mb-2">{t("proTitle")}</h3>
+                  <p className="text-white/60">{t("proDesc")}</p>
                 </div>
                 <div className="mb-8">
                   <span className="text-5xl font-black bg-gradient-to-r from-amber-400 to-orange-400 bg-clip-text text-transparent">
-                    $19
+                    {t("proPrice")}
                   </span>
-                  <span className="text-white/60 ml-2">/month</span>
+                  <span className="text-white/60 ml-2">{t("perMonth")}</span>
                 </div>
                 <ul className="space-y-4 mb-8 flex-1">
                   <li className="flex items-start gap-3">
@@ -182,7 +182,7 @@ export default function Pricing() {
                         d="M5 13l4 4L19 7"
                       />
                     </svg>
-                    <span className="text-white/80">Everything in Free</span>
+                    <span className="text-white/80">{t("proFeature1")}</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <svg
@@ -200,9 +200,9 @@ export default function Pricing() {
                     </svg>
                     <span className="text-white/80">
                       <span className="text-amber-400 font-semibold">
-                        1 OpenClaw Agent
+                        {t("proFeature2Agent")}
                       </span>{" "}
-                      instance
+                      {t("proFeature2Suffix")}
                     </span>
                   </li>
                   <li className="flex items-start gap-3">
@@ -219,7 +219,7 @@ export default function Pricing() {
                         d="M5 13l4 4L19 7"
                       />
                     </svg>
-                    <span className="text-white/80">Priority support</span>
+                    <span className="text-white/80">{t("proFeature3")}</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <svg
@@ -236,7 +236,7 @@ export default function Pricing() {
                       />
                     </svg>
                     <span className="text-white/80">
-                      Advanced collaboration tools
+                      {t("proFeature4")}
                     </span>
                   </li>
                 </ul>
@@ -244,14 +244,14 @@ export default function Pricing() {
                 <div className="mb-4 flex items-center justify-center gap-2 px-4 py-2 bg-green-500/20 border border-green-400/30 rounded-lg">
                   <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
                   <span className="text-green-400 font-semibold text-sm">
-                    Currently Free During Beta
+                    {t("freeDuringBeta")}
                   </span>
                 </div>
                 <a
                   href="https://app.team9.ai/"
                   className="w-full px-6 py-4 bg-gradient-to-r from-amber-600 via-amber-500 to-orange-600 text-white text-center font-bold rounded-xl hover:shadow-[0_10px_30px_-10px_rgba(251,191,36,0.5)] transition-all duration-300 hover:scale-105"
                 >
-                  Start Free Trial
+                  {t("startFreeTrial")}
                 </a>
               </div>
 
@@ -259,12 +259,12 @@ export default function Pricing() {
               <div className="bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-md border border-white/20 rounded-3xl p-8 shadow-2xl hover:shadow-purple-500/10 transition-all duration-500 hover:scale-[1.02] flex flex-col">
                 <div className="mb-6">
                   <h3 className="text-2xl font-bold text-white mb-2">
-                    Enterprise
+                    {t("enterpriseTitle")}
                   </h3>
-                  <p className="text-white/60">For large organizations</p>
+                  <p className="text-white/60">{t("enterpriseDesc")}</p>
                 </div>
                 <div className="mb-8">
-                  <span className="text-4xl font-black text-white">Custom</span>
+                  <span className="text-4xl font-black text-white">{t("enterprisePrice")}</span>
                 </div>
                 <ul className="space-y-4 mb-8 flex-1">
                   <li className="flex items-start gap-3">
@@ -281,7 +281,7 @@ export default function Pricing() {
                         d="M5 13l4 4L19 7"
                       />
                     </svg>
-                    <span className="text-white/80">Everything in Pro</span>
+                    <span className="text-white/80">{t("enterpriseFeature1")}</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <svg
@@ -298,7 +298,7 @@ export default function Pricing() {
                       />
                     </svg>
                     <span className="text-white/80">
-                      Unlimited OpenClaw Agents
+                      {t("enterpriseFeature2")}
                     </span>
                   </li>
                   <li className="flex items-start gap-3">
@@ -316,7 +316,7 @@ export default function Pricing() {
                       />
                     </svg>
                     <span className="text-white/80">
-                      Dedicated support & SLA
+                      {t("enterpriseFeature3")}
                     </span>
                   </li>
                   <li className="flex items-start gap-3">
@@ -333,7 +333,7 @@ export default function Pricing() {
                         d="M5 13l4 4L19 7"
                       />
                     </svg>
-                    <span className="text-white/80">Custom integrations</span>
+                    <span className="text-white/80">{t("enterpriseFeature4")}</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <svg
@@ -349,14 +349,14 @@ export default function Pricing() {
                         d="M5 13l4 4L19 7"
                       />
                     </svg>
-                    <span className="text-white/80">On-premise deployment</span>
+                    <span className="text-white/80">{t("enterpriseFeature5")}</span>
                   </li>
                 </ul>
                 <a
-                  href="/#contact"
+                  href={`/${locale}#contact`}
                   className="w-full px-6 py-4 bg-gradient-to-r from-purple-600 to-purple-500 text-white text-center font-semibold rounded-xl hover:shadow-[0_10px_30px_-10px_rgba(168,85,247,0.5)] transition-all duration-300 hover:scale-105"
                 >
-                  Contact Sales
+                  {t("contactSales")}
                 </a>
               </div>
             </div>
@@ -364,13 +364,13 @@ export default function Pricing() {
             {/* FAQ or Additional Info */}
             <div className="mt-20 text-center animate-fade-in-up animation-delay-400">
               <p className="text-white/60 mb-4">
-                Have questions about which plan is right for you?
+                {t("faqQuestion")}
               </p>
               <a
-                href="/#contact"
+                href={`/${locale}#contact`}
                 className="inline-flex items-center gap-2 text-amber-400 hover:text-amber-300 font-semibold transition-colors"
               >
-                Get in touch with our team
+                {t("faqLink")}
                 <svg
                   className="w-4 h-4"
                   fill="none"
@@ -393,20 +393,20 @@ export default function Pricing() {
         <footer className="px-6 md:px-12 lg:px-20 py-8 border-t border-white/10">
           <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
             <p className="text-white/40 text-sm">
-              2025 Team9. All rights reserved.
+              {t("footerCopyright")}
             </p>
             <div className="flex items-center gap-6">
               <a
-                href="/"
+                href={`/${locale}`}
                 className="text-white/60 hover:text-white text-sm transition-colors"
               >
-                Home
+                {t("footerHome")}
               </a>
               <a
-                href="/#contact"
+                href={`/${locale}#contact`}
                 className="text-white/60 hover:text-white text-sm transition-colors"
               >
-                Contact
+                {t("footerContact")}
               </a>
             </div>
           </div>
