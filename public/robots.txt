@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://team9.ai/sitemap.xml
