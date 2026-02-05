@@ -99,9 +99,7 @@ export default async function HomePage({ locale }: { locale: string }) {
                   <span className="inline-block bg-gradient-to-r from-amber-400 via-yellow-300 to-orange-400 bg-clip-text text-transparent [text-shadow:none] drop-shadow-[0_2px_20px_rgba(251,191,36,0.3)]">
                     OpenClaw
                   </span>
-                </span>
-                <span className="block [text-shadow:_0_2px_30px_rgba(0,0,0,0.5),_0_4px_60px_rgba(0,0,0,0.3)]">
-                  {tHero("headline2")}
+                  <span className="text-white">{" "}{tHero("headline2")}</span>
                 </span>
                 <span className="block text-white/90 [text-shadow:_0_2px_30px_rgba(0,0,0,0.5),_0_4px_60px_rgba(0,0,0,0.3)]">
                   {tHero("headline3")}
