@@ -182,7 +182,7 @@ export default async function HomePage({ locale }: { locale: string }) {
             </div> */}
           </div>
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/bg.webp" id="bg" alt="" />
+          {/* <img src="/bg.webp" id="bg" alt="" /> */}
         </main>
 
         {/* Moltbook Ecosystem Badge */}
